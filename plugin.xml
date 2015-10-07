@@ -61,5 +61,12 @@
         <source-file src="src/ios/NativeAudioAsset.m"/>
 
     </platform>
+    
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/NativeAudioProxy.js" name="NativeAudioProxy">
+            <merges target="" />
+        </js-module>
+    </platform>
 
 </plugin>
