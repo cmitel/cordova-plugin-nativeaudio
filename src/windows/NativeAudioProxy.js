@@ -8,21 +8,18 @@ var assetsLoad = {};
  */
 function createAudioElement(id, assetPath) {
     
-    // Create HTMLAudioElement
     //var audio = new Audio(assetPath);
     var audio = '<audio src="'+ assetPath +'" id="'+ id +'" preload="auto"></audio>';
     
-    // Append element to the body element
     document.getElementsByTagName('body')[0].appendChild(audio);
     
-    // Retrieve the appended element
     assetsLoad[id] = document.getElementById(i);
 
     if (!assetsLoad[id]) {
         throw "Unable to add HTMLAudio element for asset : "+ assetPath;
     }
 
-    assetsLoad[id].volume = 1;
+    assetsLoad[id].volume = 0.5;
 }
 
 // -----------------------------
@@ -90,7 +87,6 @@ module.exports  = {
         }
 
         var that = this;
-
         var successPreload = function () {
             that.setVolumeForComplexAsset(id, volume, successCallback, errorCallback);
         };
@@ -114,7 +110,7 @@ module.exports  = {
         var id = args[0];
 
         if (!assetsLoad[id]) {
-            errorCallback("Id not loaded : "+ id);
+            errorCallback("Identitifer not loaded : "+ id);
         }
 
         if(typeof completeCallback === "function") {
@@ -145,7 +141,7 @@ module.exports  = {
         var id = args[0];
 
         if (!assetsLoad[id]) {
-            errorCallback("Id not loaded : "+ id);
+            errorCallback("Identifier not loaded : "+ id);
         }
 
         try {
